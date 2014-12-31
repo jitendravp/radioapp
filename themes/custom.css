@@ -1,18 +1,20 @@
 body{background:#222222 url(images/bg.jpg) repeat-x 0 0;}
-body.page_star_fm{background:#00a5db url(images/bg_star_fm.jpg) no-repeat center center; background-size:100%;}
-body.page_abudhabi_fm{background:#e0596a url(images/bg_abudhabi_fm.jpg) no-repeat center center; background-size:100%;}
-body.page_alquran_fm{background:#2cdfaa url(images/bg_alquran_fm.jpg) no-repeat center center; background-size:100%;}
-body.page_classic_fm{background:#c45cf9 url(images/bg_classic_fm.jpg) no-repeat center center; background-size:100%;}
-body.page_emirate_fm{background:#f8a321 url(images/bg_emirate_fm.jpg) no-repeat center center; background-size:100%;}
-body.page_radiomirchi_fm{background:#fed834 url(images/bg_radio_m_fm.jpg) no-repeat center center; background-size:100%;}
+body.page_star_fm{background:#00a5db url(images/bg_star_fm.jpg) no-repeat center center; background-size:100% 100%;}
+body.page_abudhabi_fm{background:#e0596a url(images/bg_abudhabi_fm.jpg) no-repeat center center; background-size:100% 100%;}
+body.page_alquran_fm{background:#2cdfaa url(images/bg_alquran_fm.jpg) no-repeat center center; background-size:100% 100%;}
+body.page_classic_fm{background:#c45cf9 url(images/bg_classic_fm.jpg) no-repeat center center; background-size:100% 100%;}
+body.page_emirate_fm{background:#f8a321 url(images/bg_emirate_fm.jpg) no-repeat center center; background-size:100% 100%;}
+body.page_radiomirchi_fm{background:#fed834 url(images/bg_radio_m_fm.jpg) no-repeat center center; background-size:100% 100%;}
 
 .ui-bar-a, .ui-header, .ui-footer, .ui-content{border: none !important; background-color:transparent !important; text-shadow:none !important; box-shadow:none !important;}
 .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head + body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head + body .ui-btn.ui-btn-a:visited{border: none !important; background-color:transparent !important; text-shadow:none !important; box-shadow:none !important;}
 
+body .ui-btn.ui-btn-a:active{opacity:0.5;}
+
 #grid .ui-btn img{ width:100%;}
 #grid .ui-bar{ padding:0px;}
 .container{max-width:600px; margin: 0 auto !important; position:relative;}
-#grid .ui-btn{margin: 0;padding: 0.7em 0.7em;}
+#grid .ui-btn{padding: 0.7em 0.7em;}
 
 .footer{ min-height:55px;}
 
