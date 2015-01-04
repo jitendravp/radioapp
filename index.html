@@ -5,37 +5,177 @@
 	<title>AD Radio</title>
 	<link rel="stylesheet" href="themes/ad_radio.min.css" />
     <link rel="stylesheet" href="themes/custom.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.5.min.css" />
-	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
+	<script type="text/javascript"  src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="js/jquery.jplayer.js"></script>
+		<script data-dojo-config="onReady:window.tdPlayerApiReady, async: 1, tlmSiblingOfDojo: 0, deps:['tdapi/run']"
+src="http://api.listenlive.co/tdplayerapi/2.5/dojo/dojo.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript">
+var player;
+var currentStream = '';
+var livePlaying;
+function tdPlayerApiReady(){
+console.log( 'TdPlayerApi is ready' );
+var tdPlayerConfig = { coreModules:[{ id: 'MediaPlayer', playerId: 'td_container' }] };
+player = new TdPlayerApi(tdPlayerConfig);
+player.loadModules();
+player.addEventListener( 'stream-start', onStreamStarted );
+player.addEventListener( 'stream-stop', onStreamStopped );
+player.addEventListener( 'player-ready', onPlayerReady );
+player.addEventListener( 'stream-error', onStreamError );
+player.addEventListener( 'stream-fail', onStreamFail);
+
+}
+function onPlayerReady(){
+	jQuery("#loadgif").hide();
+	jQuery(".jp-play").show();
+	jQuery(".jp-pause").show();
+}
+function onStreamError(){
+console.log("current stream" + currentStream);
+setTimeOut(function(){
+console.log("error");
+player.play({station:currentStream});
+},1000);
+}
+function onStreamFail(){
+console.log("current stream" + currentStream);
+setTimeOut(function(){
+console.log("error2	");
+player.play({station:currentStream});
+},1000);
+}
+
+function onStreamStarted() {
+	jQuery("#loadgif").hide();
+    livePlaying = true;
+	jQuery("#loadgifbuffer").hide();
+    console.log(livePlaying);
+}
+function onStreamStopped() {
+    livePlaying = false;
+    console.log(livePlaying);
+}
+	$(document).ready(function(){
+	jQuery("#loadgifbuffer").hide();
+	//	console.log("loading player");
+	jQuery(".jp-play").hide();
+	jQuery(".jp-pause").hide();
+	jQuery(".starfmplay").click(function(){
+	jQuery("#loadgif").hide();
+		if(livePlaying == true)
+			player.pause();
+		
+	jQuery("#loadgifbuffer").show();	
+	currentStream	 = 'STAR_FM';
+	player.play( {station:'STAR_FM'} );
+	});
+	jQuery(".starfmpause").click(function(){player.pause();});
+	
+	jQuery(".alquranFMplay").click(function(){
+	if(livePlaying == true)
+			player.pause();
+			
+	jQuery("#loadgifbuffer").show();			
+	currentStream	 = 'EMARAT_FM';
+	player.play( {station:'EMARAT_FM'} )
+	;});
+	jQuery(".alquranFMpause").click(function(){player.pause();});
+	});
+</script>
 </head>
 <body>
-<div data-role="page"  class="home">
 
+<div data-role="page" id="home" class="home">
     <div role="main" class="ui-content">
         <div class="ui-grid-a" id="grid">
             <div class="ui-block-a">
-<div class="ui-bar ui-bar-a"><a href="star_fm.html" data-transition="slidefade" data-ajax="true" title=""><img src="themes/images/btn_4.png" alt=""></a></div>
+<div class="ui-bar ui-bar-a"><a href="#star_fm_page" data-transition="slide" title=""><img src="themes/images/btn_4.png" alt=""></a></div>
             </div>
             <div class="ui-block-b">
-<div class="ui-bar ui-bar-a"><a href="alquran_fm.html" data-transition="slidefade" data-ajax="true" title=""><img src="themes/images/btn_2.png" alt=""></a></div>
+<div class="ui-bar ui-bar-a"><a href="#alquranFM" data-transition="slide" title=""><img src="themes/images/btn_2.png" alt=""></a></div>
             </div>
             <div class="ui-block-a">
-<div class="ui-bar ui-bar-a"><a href="emirate_fm.html" data-transition="slidefade" data-ajax="true" title=""><img src="themes/images/btn_3.png" alt=""></a></div>
+<div class="ui-bar ui-bar-a"><a href="emirate_fm.html" data-transition="slide" data-ajax="false" title=""><img src="themes/images/btn_3.png" alt=""></a></div>
             </div>
             <div class="ui-block-b">
-<div class="ui-bar ui-bar-a"><a href="classic_fm.html" data-transition="slidefade" data-ajax="true" title=""><img src="themes/images/btn_5.png" alt=""></a></div>
+<div class="ui-bar ui-bar-a"><a href="classic_fm.html" data-transition="slide" data-ajax="false" title=""><img src="themes/images/btn_5.png" alt=""></a></div>
             </div>
             <div class="ui-block-a">
-<div class="ui-bar ui-bar-a"><a href="abudhabi_fm.html" data-transition="slidefade" data-ajax="true" title=""><img src="themes/images/btn_1.png" alt=""></a></div>
+<div class="ui-bar ui-bar-a"><a href="abudhabi_fm.html" data-transition="slide" data-ajax="false" title=""><img src="themes/images/btn_1.png" alt=""></a></div>
             </div>
             <div class="ui-block-b">
-<div class="ui-bar ui-bar-a"><a href="radiomirchi_fm.html" data-transition="slidefade" data-ajax="true" title=""><img src="themes/images/btn_6.png" alt=""></a></div>
+<div class="ui-bar ui-bar-a"><a href="radiomirchi_fm.html" data-transition="slidefade" data-ajax="false" title=""><img src="themes/images/btn_6.png" alt=""></a></div>
             </div>
         </div>
     </div>
 
 </div>
+
+
+<div data-role="page" id="star_fm_page">
+    <div class="header" data-role="header" data-position="fixed">
+    	<h1 class="ui-title">Star FM</h1>
+    </div>
+    <div role="main" class="ui-content starfm_bg">
+        
+    </div>
+    <div class="footer" data-role="footer" data-position="fixed">
+         <div id="starfm_jplayer_1" class="jp-jplayer"></div>
+  <div id="starfm_container_1">
+    <div class="jp-gui ui-widget ui-widget-content ui-corner-all">
+      <ul class="playbtn">
+        <li class="jp-play ui-state-default ui-corner-all"><a href="javascript:;" class="jp-play ui-icon ui-icon-play starfmplay" tabindex="1" title="play">play</a></li>
+        <li class="jp-pause ui-state-default ui-corner-all"><a  href="javascript:;" class="jp-pause ui-icon ui-icon-pause starfmpause" tabindex="1" title="pause">pause</a></li>
+		<li>
+		<img src="themes/images/loader.gif" id="loadgifbuffer">
+		</li>
+      </ul>
+	
+      <div class="jp-clearboth"></div>
+      
+    </div>
+    <div class="jp-no-solution"></div>
+  </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div data-role="page" id="alquranFM">
+    <div class="header" data-role="header" data-position="fixed">
+    	<h1 class="ui-title">Alquran Alkarim FM</h1>
+    </div>
+    <div role="main" class="ui-content alquran_bg"></div>
+    <div class="footer" data-role="footer" data-position="fixed">
+         <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+  <div id="jp_container_1">
+    <div class="jp-gui ui-widget ui-widget-content ui-corner-all">
+      <ul class="playbtn">
+        <li class="jp-play ui-state-default ui-corner-all"><a href="javascript:;" class="jp-play ui-icon ui-icon-play alquranFMplay" tabindex="1" title="play">play</a></li>
+        <li class="jp-pause ui-state-default ui-corner-all"><a href="javascript:;" class="jp-pause ui-icon ui-icon-pause alquranFMpause" tabindex="1" title="pause">pause</a></li>
+		<li>
+		<img src="themes/images/loader.gif" id="loadgifbuffer">
+		</li>
+      </ul>
+	 
+      </ul>
+      <div class="jp-clearboth"></div>
+    </div>
+    <div class="jp-no-solution"></div>
+  </div>
+    </div>
+</div>
+
+
+<div id="td_container" style="visibility:hidden"></div>
 </body>
 </html>

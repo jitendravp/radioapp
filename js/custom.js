@@ -8,3 +8,21 @@ function contentHeight() {
 }
 $(document).on("pagecontainertransition", contentHeight);
 $(window).on("throttledresize orientationchange", contentHeight);
+
+$(document).ready(function() {
+	$('#btn1').on('click', function() {
+		//$.mobile.changePage('star_fm.html', { transition: 'slideup'}, true, true);  
+		//console.log('test');
+	});
+});
+
+var player = null;
+	function tdPlayerApiReady(){
+		console.log( 'TdPlayerApi is ready' );
+		var tdPlayerConfig = { coreModules:[{ id: 'MediaPlayer', playerId: 'starfm_jplayer_1' }] };
+		player = new TdPlayerApi(tdPlayerConfig);
+		player.loadModules();
+		player.addEventListener( 'stream-start', onStreamStarted );
+		player.addEventListener( 'stream-stop', onStreamStopped );
+		//player.play( {station:'STAR_FM'} );
+	}
