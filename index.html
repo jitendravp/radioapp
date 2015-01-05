@@ -3,7 +3,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>AD Radio</title>
-	<link rel="stylesheet" href="themes/ad_radio.min.css" />
+	<!-- <link rel="stylesheet" href="themes/ad_radio.min.css" />-->
     <link rel="stylesheet" href="themes/custom.css" />
     <!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">-->
 	<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.5.min.css" />
@@ -15,7 +15,6 @@ src="http://api.listenlive.co/tdplayerapi/2.5/dojo/dojo.js"></script>
     <!-- <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>-->
     <script type="text/javascript" src="js/custom.js"></script>
     <script type="text/javascript">
-jQuery.mobile.orientationChangeEnabled = false;
 var player;
 var currentStream = '';
 var livePlaying;
@@ -181,19 +180,15 @@ $(document).ready(function(){
 </div>
 
 <div data-role="page" id="star_fm_page">
-    <div class="header" data-role="header" data-position="fixed">
-    	<h1 class="ui-title">Star FM</h1>
-    </div>
-    <div role="main" class="ui-content starfm_bg">
-        
-    </div>
-    <div class="footer jp-gui" data-role="footer" data-position="fixed">
-        <ul class="playbtn">
-			<li class="jp_play_list"><a href="javascript:void(0);" class="star_fm_play jp-play starfmplay" tabindex="1" title="play">Play</a></li>
-			<li class="jp_pause_list"><a href="javascript:void(0);" class="star_fm_pause jp-pause starfmpause" tabindex="1" title="pause">Pause</a></li>
-			<li class="loadgifholder"><img src="themes/images/loader.gif" class="loadgifbuffer"></li>
-       </ul>
-    </div>
+<div class="header" data-role="header" data-position="fixed"><h1 class="ui-title">Star FM</h1></div>
+<div role="main" class="ui-content starfm_bg"></div>
+<div class="footer jp-gui" data-role="footer" data-position="fixed" data-tap-toggle="false">
+<ul class="playbtn">
+	<li class="jp_play_list"><a href="javascript:void(0);" class="star_fm_play jp-play starfmplay" tabindex="1" title="play">Play</a></li>
+	<li class="jp_pause_list"><a href="javascript:void(0);" class="star_fm_pause jp-pause starfmpause" tabindex="1" title="pause">Pause</a></li>
+	<li class="loadgifholder"><img src="themes/images/loader.gif" class="loadgifbuffer"></li>
+</ul>
+</div>
 </div>
 
 <div data-role="page" id="alquranFM">
@@ -201,7 +196,7 @@ $(document).ready(function(){
     	<h1 class="ui-title">Alquran Alkarim FM</h1>
     </div>
     <div role="main" class="ui-content alquran_bg"></div>
-    <div class="footer jp-gui" data-role="footer" data-position="fixed">
+    <div class="footer jp-gui" data-role="footer" data-position="fixed" data-tap-toggle="false">
         <ul class="playbtn">
 			<li class="jp_play_list"><a href="javascript:void(0);" class="alquran_fm_play jp-play alquranplay" tabindex="1" title="play">Play</a></li>
 			<li class="jp_pause_list"><a href="javascript:void(0);" class="alquran_fm_pause jp-pause alquranpause" tabindex="1" title="pause">Pause</a></li>
@@ -215,7 +210,7 @@ $(document).ready(function(){
     	<h1 class="ui-title">Emarat FM</h1>
     </div>
     <div role="main" class="ui-content emirate_bg"></div>
-    <div class="footer jp-gui" data-role="footer" data-position="fixed">
+    <div class="footer jp-gui" data-role="footer" data-position="fixed" data-tap-toggle="false">
         <ul class="playbtn">
 			<li class="jp_play_list"><a href="javascript:void(0);" class="emirate_fm_play jp-play emaratFMplay" tabindex="1" title="play">Play</a></li>
 			<li class="jp_pause_list"><a href="javascript:void(0);" class="emirate_fm_pause jp-pause emaratFMpause" tabindex="1" title="pause">Pause</a></li>
@@ -229,7 +224,7 @@ $(document).ready(function(){
     	<h1 class="ui-title">AD Classic FM</h1>
     </div>
     <div role="main" class="ui-content classic_bg"></div>
-    <div class="footer jp-gui" data-role="footer" data-position="fixed">
+    <div class="footer jp-gui" data-role="footer" data-position="fixed" data-tap-toggle="false">
         <ul class="playbtn">
 			<li class="jp_play_list"><a href="javascript:void(0);" class="adclassic_fm_play jp-play classicFMplay" tabindex="1" title="play">Play</a></li>
 			<li class="jp_pause_list"><a href="javascript:void(0);" class="adclassic_fm_pause jp-pause classicFMpause" tabindex="1" title="pause">Pause</a></li>
@@ -243,7 +238,7 @@ $(document).ready(function(){
     	<h1 class="ui-title">Abu Dhabi FM</h1>
     </div>
     <div role="main" class="ui-content abudhabi_bg"></div>
-    <div class="footer jp-gui" data-role="footer" data-position="fixed">
+    <div class="footer jp-gui" data-role="footer" data-position="fixed" data-tap-toggle="false">
         <ul class="playbtn">
 			<li class="jp_play_list"><a href="javascript:void(0);" class="abudhabi_fm_play jp-play abudhabiFMplay" tabindex="1" title="play">Play</a></li>
 			<li class="jp_pause_list"><a href="javascript:void(0);" class="abudhabi_fm_pause jp-pause abudhabiFMpause" tabindex="1" title="pause">Pause</a></li>
@@ -257,7 +252,7 @@ $(document).ready(function(){
     	<h1 class="ui-title">Radio Mirchi</h1>
     </div>
     <div role="main" class="ui-content radiomirchi_bg"></div>
-    <div class="footer jp-gui" data-role="footer" data-position="fixed">
+    <div class="footer jp-gui" data-role="footer" data-position="fixed" data-tap-toggle="false">
         <ul class="playbtn">
 			<li class="jp_play_list"><a href="javascript:void(0);" class="mirchi_fm_play jp-play radiomirchiFMplay" tabindex="1" title="play">Play</a></li>
 			<li class="jp_pause_list"><a href="javascript:void(0);" class="mirchi_fm_pause jp-pause radiomirchiFMpause" tabindex="1" title="pause">Pause</a></li>

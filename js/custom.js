@@ -1,3 +1,5 @@
+jQuery.mobile.orientationChangeEnabled = true;
+
 function contentHeight() {
   var screen = $.mobile.getScreenHeight(),
 	  header = $(".ui-header").hasClass("ui-header-fixed") ? $(".ui-header").outerHeight() - 1 : $(".ui-header").outerHeight(),
@@ -9,12 +11,6 @@ function contentHeight() {
 $(document).on("pagecontainertransition", contentHeight);
 $(window).on("throttledresize orientationchange", contentHeight);
 
-$(document).ready(function() {
-	$('#btn1').on('click', function() {
-		//$.mobile.changePage('star_fm.html', { transition: 'slideup'}, true, true);  
-		//console.log('test');
-	});
-});
 
 var player = null;
 	function tdPlayerApiReady(){
@@ -25,4 +21,4 @@ var player = null;
 		player.addEventListener( 'stream-start', onStreamStarted );
 		player.addEventListener( 'stream-stop', onStreamStopped );
 		//player.play( {station:'STAR_FM'} );
-	}
+}
